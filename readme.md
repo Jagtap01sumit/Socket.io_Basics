@@ -30,7 +30,9 @@
 
 ### we can use emit and on ...both sides client and server...
 
-### for example at client... if there is a butten which click then the socket.emit event occuress....then this data received by the server side socket.on ....and it emit ...io.emit which received by socket.io...
+## For Example
+
+### at client... if there is a butten which click then the socket.emit event occuress....then this data received by the server side socket.on ....and it emit ...io.emit which received by socket.io...
 
 #### 1. client : there is a button click....socket.emit(btn,4);
 
