@@ -85,3 +85,14 @@
 ### const io = new Server(server);
 
 ### io.on("connection", (socket) => { console.log("User Connected"); console.log("Id",socket.id);});
+
+#### io.on("connection", (socket) => {
+
+console.log("User Connected", socket.id);
+
+// socket.emit("welcome", `Hello this is socket emi msg ${socket.id}`);
+// socket.broadcast.emit("welcome", ` ${socket.id} joined the server`); //jisne bheja hai use chodke sbko jayega msg
+socket.on("disconnect", () => {
+console.log(`User Disconnected ${socket.id}`);
+});
+});

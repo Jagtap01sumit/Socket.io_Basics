@@ -19,9 +19,16 @@ app.get("/", (req, res) => {
   res.send("Hello world");
 });
 io.on("connection", (socket) => {
-  console.log("User Connected");
-  console.log("Id", socket.id);
-  io.emit("welcome", `Hello welcome to the server ${socket.id}`);
+  console.log("User Connected", socket.id);
+  socket.on("message", (data) => {
+    console.log(data);
+  });
+
+  // socket.emit("welcome", `Hello this is socket emi msg ${socket.id}`);
+  // socket.broadcast.emit("welcome", ` ${socket.id} joined the server`); //jisne bheja hai use chodke sbko jayega msg
+  socket.on("disconnect", () => {
+    console.log(`User Disconnected ${socket.id}`);
+  });
 });
 
 server.listen(port, () => {
