@@ -49,3 +49,27 @@
 ### io.emit : msg send to all sockets and users
 
 ### socket.broadcast.emit() : if we want to send msg to all the sockets or user execpt one user .
+
+# Code
+
+## Client (we used MUI)
+
+### npm i socket.io-client
+
+## Server
+
+### npm i socket.io
+
+### create a server
+
+## Socket
+
+### import { Server } from "socket.io";
+
+### import { createServer } from "http";
+
+### const server = createServer(app);
+
+### const io = new Server(server);
+
+### io.on("connection", (socket) => { console.log("User Connected"); console.log("Id",socket.id);});
