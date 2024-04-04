@@ -7,21 +7,21 @@ const app = express();
 const port = 5000;
 
 const server = createServer(app);
-const io = new Server(server);
-
-app.use(
-  cors({
+const io = new Server(server, {
+  cors: {
     origin: "http://localhost:5173",
     methods: ["GET", "POST"],
-    // credentials: true, // Corrected
-  })
-);
+    credentials: true,
+  },
+});
+
 app.get("/", (req, res) => {
   res.send("Hello world");
 });
 io.on("connection", (socket) => {
   console.log("User Connected");
   console.log("Id", socket.id);
+  io.emit("welcome", `Hello welcome to the server ${socket.id}`);
 });
 
 server.listen(port, () => {
