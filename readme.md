@@ -96,3 +96,18 @@ socket.on("disconnect", () => {
 console.log(`User Disconnected ${socket.id}`);
 });
 });
+
+## Middleware
+
+### we can use middleware in a socket
+
+### example
+
+### io.use((socket,next)=>{
+
+### //// if condition is true {
+
+### next();
+
+}
+})
